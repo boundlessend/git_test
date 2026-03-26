@@ -7,8 +7,13 @@ USERS = [
 ]
 
 
-def get_all_users(status=None):
-    if status is None:
-        return USERS
+def get_all_users(status=None, sort=None):
+    items = USERS
 
-    return [user for user in USERS if user["status"] == status]
+    if status is not None:
+        items = [user for user in items if user["status"] == status]
+
+    if sort == "email":
+        items = sorted(items, key=lambda user: user["email"])
+
+    return items

@@ -1,5 +1,5 @@
-from src.users.handler import get_users_handler
 from src.users.service import list_users
+from src.users.handler import get_users_handler
 
 
 def test_list_users_returns_all():
@@ -23,3 +23,9 @@ def test_get_users_handler_returns_400_for_invalid_status():
     response = get_users_handler({"query": {"status": "archived"}})
     assert response["code"] == 400
     assert response["error"] == "invalid status"
+
+
+def test_list_users_can_be_sorted_by_email():
+    users = list_users(sort="email")
+    emails = [user["email"] for user in users]
+    assert emails == sorted(emails)
