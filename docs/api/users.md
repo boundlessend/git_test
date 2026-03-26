@@ -2,11 +2,12 @@
 
 Возвращает список пользователей.
 
-## Ответ
+## Query params
 
-Возвращает объект формата:
+- `status` — необязательный параметр фильтрации
 
-```json
-{
-  "items": []
-}
+## Примеры
+
+- `GET /users`
+- `GET /users?status=active`
+- `GET /users?status=blocked`
