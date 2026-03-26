@@ -1,5 +1,5 @@
-from src.users.service import list_users
 from src.users.handler import get_users_handler
+from src.users.service import list_users
 
 
 def test_list_users_returns_all():
