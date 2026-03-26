@@ -7,5 +7,8 @@ USERS = [
 ]
 
 
-def get_all_users():
-    return USERS
+def get_all_users(status=None):
+    if status is None:
+        return USERS
+
+    return [user for user in USERS if user["status"] == status]
